@@ -11,10 +11,12 @@ class Counter extends Component {
     tags: ['tag1', 'tag2', 'tag3'],
   };
 
-  handleIncrement = () => {
+  handleIncrement = (e) => {
+    console.log(e)
     console.log("Increment Clicked");
     this.setState({ count: this.state.count + 1 });
   }
+
 
   renderTags() {
     if (this.state.tags.length === 0) return <p>There are no tags</p>;
@@ -30,8 +32,8 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        {this.state.tags.length === 0 && "please create a new tag"}
-        {this.renderTags()}
+        {/* {this.state.tags.length === 0 && "please create a new tag"}
+        {this.renderTags()} */}
         <span
           className={
             this.state.count === 0 ? "badge-warning m-2" : "badge-primary m-2"
@@ -41,7 +43,7 @@ class Counter extends Component {
         </span>
 
         <button
-          onClick={this.handleIncrement}
+          onClick={()=> this.handleIncrement()}
           className="btn btn-secondary btn-lg"
         >
           Increment
