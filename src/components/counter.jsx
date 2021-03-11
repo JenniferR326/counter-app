@@ -9,7 +9,7 @@ class Counter extends Component {
       <div>
         <span
           className={
-            this.props.counter.value === 0 ? "badge-warning m-2" : "badge-primary m-2"
+            this.props.counter.value === 0 ? "badge badge-warning m-2" : "badge badge-primary m-2"
           }
         >
           {this.formatCount()}
