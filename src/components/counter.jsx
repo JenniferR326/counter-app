@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Counters from './counters'
 
 class Counter extends Component {
   // constructor() {
@@ -7,14 +8,13 @@ class Counter extends Component {
   // }
 
   state = {
-    count: 0,
-    tags: ['tag1', 'tag2', 'tag3'],
+    value: this.props.value,
   };
 
   handleIncrement = (e) => {
     console.log(e)
     console.log("Increment Clicked");
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.value + 1 });
   }
 
 
@@ -30,10 +30,10 @@ class Counter extends Component {
   }
 
   render() {
+    console.log('VALUE', this.props.value)
+
     return (
       <div>
-        {/* {this.state.tags.length === 0 && "please create a new tag"}
-        {this.renderTags()} */}
         <span
           className={
             this.state.count === 0 ? "badge-warning m-2" : "badge-primary m-2"
@@ -48,6 +48,7 @@ class Counter extends Component {
         >
           Increment
         </button>
+        <button onClick={()=>this.props.onDelete(this.props.id)} className="btn btn-danger btn-md m-2">Delete</button>
       </div>
     );
   }
